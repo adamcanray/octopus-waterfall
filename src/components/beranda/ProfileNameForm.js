@@ -34,8 +34,7 @@ class ProfileNameForm extends Component {
     // berikan displayName
     var user = firebase.auth().currentUser;
     user.updateProfile({
-      displayName: this.state.displayName,
-      photoURL: photoURL
+      displayName: this.state.displayName
     }).then(function() {
       // Update successful.
       console.log('displayName berhasil');

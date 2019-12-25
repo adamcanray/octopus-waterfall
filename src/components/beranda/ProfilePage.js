@@ -4,16 +4,16 @@ import {  Redirect } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import UpdateProfileNameForm from './UpdateProfileNameForm';
+import ProfilePhotoUpdate from './ProfilePhotoUpdate';
 
 class ProfilePage extends Component {
-  state = {
-    // DELETE
-    email: '',
-    password: '',
-    // UPDATE
-    image: null,
-    photoURL: '',
-    progress: 0
+  constructor(props){
+    super(props);
+    this.state = {
+      // DELETE
+      email: '',
+      password: '',
+    }
   }
   // DELETE ACCOUNT
   handleChangeDelete = (e) => {
@@ -48,53 +48,15 @@ class ProfilePage extends Component {
   }
 
   // UPDATE ACCOUNT
-  handleChange = e => {
-    // Upload PHOTO
-    if (e.target.files[0]) {
-      const image = e.target.files[0];
-      this.setState(() => ({ image }));
-    }
-  };
-  // UPLOAD IMAGE
-  handleUpload = (e) => {
-    e.preventDefault();
-    // Upload PHOTO
-    const { auth } = this.props;
-    const { image } = this.state;
-    const uploadTask = firebase.storage().ref(`profilePicture/${auth.uid}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      snapshot => {
-        // progress function ...
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        this.setState({ progress });
-      },
-      error => {
-        // Error function ...
-        console.log(error);
-      },
-      () => {
-        // complete function ...
-        firebase.storage()
-          .ref("images")
-          .child(auth.uid)
-          .getDownloadURL()
-          .then(photoURL => {
-            this.setState({ photoURL });
-          });
-      }
-    );
-  };
+  
 
   render(){
     const { auth } = this.props;
     // jika tidak login redirect ke signin
     if(!auth.uid) return <Redirect to="/login" />
 
-    const updateProfileNameForm = this.state.progress === 100 ? <UpdateProfileNameForm /> : <p className="text-dark text-center">Wait for Upload..</p>
-    const buttonFormUpload = this.state.progress === 100 ? <p className="text-primary">Upload Success</p> : <button type="submit" className="btn btn-light mb-3">Upload File</button>
+    const updateProfileNameForm = <UpdateProfileNameForm />
+
 
     return (
       <div className="container">
@@ -127,28 +89,34 @@ class ProfilePage extends Component {
             </div>
           </div>
         </div>
-        {/* modal UPDATE ACCOUNT */}
-        <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {/* modal UPDATE PROFILE NAME */}
+        <div className="modal fade" id="updateProfileNameModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Update Account</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Update Profile Name</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div className="modal-body">
-                <form onSubmit={this.handleUpload}>
-                  <div className="form-group">
-                    <label htmlFor="file">File</label>
-                    <input id="file" type="file" className="form-control-file" onChange={this.handleChange} />
-                  </div>
-                  <div className="progress mb-2">
-                    <progress className="progress-bar w-100 h-100" value={this.state.progress} max="100" />
-                  </div>
-                  {buttonFormUpload}
-                </form>
                 { updateProfileNameForm }
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* modal UPDATE PROFILE PICTURE */}
+        <div className="modal fade" id="updateProfilePictureModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Update Profile Picture</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <ProfilePhotoUpdate />
               </div>
             </div>
           </div>
@@ -156,7 +124,12 @@ class ProfilePage extends Component {
         <div className="row mt-5 justify-content-center">
           <div className="col-lg-7">
             <div className="card border-0 text-center shadow-sm p-5">
-              <img src={auth.photoURL} className="img-profile card-img-top rounded-circle img-thumbnail mx-auto mt-3" alt="profile-pict" />
+              <img src={auth.photoURL || 'https://firebasestorage.googleapis.com/v0/b/octopuswaterfall.appspot.com/o/profilePictureDefault%2FphotoProfileDefault.jpg?alt=media&token=3528e30f-bbeb-4c59-bfe0-a8586f414ee0'} className="img-profile card-img-top rounded-circle img-thumbnail mx-auto mt-3" alt="profile-pict" />
+              <div className="row p-0 mt-3 justify-content-center">
+                <div className="col-lg-6 col-md-6">
+                  <button className="btn btn-light w-100" data-toggle="modal" data-target="#updateProfilePictureModal">Update Picture</button>
+                </div>
+              </div>
               <div className="card-body">
                 <div className="card-text">
                   <span className="info-user-name">{auth.displayName}</span><br/>
@@ -168,7 +141,7 @@ class ProfilePage extends Component {
                 <div className="row justify-content-center">
                   <div className="col-lg-12 col-md-12 mb-2">Action:</div>
                     <div className="col-lg-6 col-md-6 p-0 mt-1 pr-md-1">
-                      <button className="btn btn-success w-100" data-toggle="modal" data-target="#updateModal">Update Account</button>
+                      <button className="btn btn-success w-100" data-toggle="modal" data-target="#updateProfileNameModal">Update Profile Name</button>
                     </div>
                     <div className="col-lg-6 col-md-6 p-0 mt-1 pl-md-1">
                       <button className="btn btn-danger w-100" data-toggle="modal" data-target="#deleteModal">Delete Account</button>
