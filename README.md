@@ -20,3 +20,8 @@ Instalisasi:
 
 
 >PERHATIAN: Setelah mengikuti proses installasi diatas pasti akan ada **error**, karena pada file **fbConfig.js** API-KEY dan kawan-kawannya belum di-SET menyebabkan koneksi ke Firebase belum ter-Autentikasi. <br><br> Silahkan **Pull-Request** dan menjadi **Contributor** lalu saya bisa memberikan akses anda ke Firebase Project dan kita **Kembangkan Octopus Waterfall** bersama-sama.
+
+<br><br>
+
+All the best.<br>
+&copy;2019 Muhammad Adam Canrayneldy
