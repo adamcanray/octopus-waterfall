@@ -1,8 +1,11 @@
 ## Octopus Waterfall
 
-ini adalah repository dari website: 
-* https://octopuswaterfall.web.app/
-* https://octopuswaterfall.firebaseapp.com/
+ini adalah repository dari website: https://octopuswaterfall.web.app/
+
+**Preview App:**
+
+![Preview Octopus Waterfall](preview/Octopus&#32;Waterfall.svg)
+
 
 Yang dibutuhkan:
 * [Node JS](https://nodejs.org/en/)
