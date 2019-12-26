@@ -35,6 +35,7 @@ code {
 .mid-footer-contributor-img{width:30px;}
 .bot-footer{padding:22px 0px;background-color:#202020;}
 .bot-footer a{color:#FF5959;}
+.bot-footer-border-right{border-right:solid #fff 1px;}
 /* ABOUT */
 .title-desc{color:#FF5959;font-size:40px;}
 .desc{font-size:20px;}

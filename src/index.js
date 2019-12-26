@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import { reactReduxFirebase, getFirebase, authIsReady } from 'react-redux-firebase';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import thunk from 'redux-thunk';
+// bootstrap css
+import 'bootstrap/dist/css/bootstrap.min.css';
+import * as serviceWorker from './serviceWorker';
+import rootReducer from './store/reducer/rootReducer';
+import fbConfig from './config/fbConfig';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './store/reducer/rootReducer';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase, authIsReady } from 'react-redux-firebase';
-import fbConfig from './config/fbConfig';
+// bootstrap js
+import 'jquery/dist/jquery.min.js';
+import 'popper.js/dist/popper.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 const store = createStore(rootReducer,
   compose(

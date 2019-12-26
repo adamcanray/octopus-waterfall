@@ -48,7 +48,6 @@ class ProfilePage extends Component {
   }
 
   // UPDATE ACCOUNT
-  
 
   render(){
     const { auth } = this.props;
@@ -111,7 +110,7 @@ class ProfilePage extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Update Profile Picture</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <button onClick={() => {window.location.reload()}} type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>

@@ -41,6 +41,7 @@ export const signUp = (newUser) => {
         password: newUser.password
       })
     }).then(() => {
+      
       dispatch({ type: 'SIGNUP_SUCCESS' })
     }).catch(err => {
       dispatch({ type: 'SIGNUP_ERROR', err })

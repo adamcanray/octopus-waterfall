@@ -19,18 +19,13 @@ class ProfileNameForm extends Component {
     }
     // Directly return the joined string
     let valToUpper = splitStr.join(' ');
-    // if (e.target.files[0]) {
-    //   const image = e.target.files[0];
-    //   this.setState(() => ({ image }));
-    // }
+
     this.setState({
       [e.target.id]: valToUpper,
     })
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    // uploaderImg
-    const { photoURL } = this.props;
     // berikan displayName
     var user = firebase.auth().currentUser;
     user.updateProfile({

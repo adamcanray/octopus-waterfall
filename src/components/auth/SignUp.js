@@ -13,7 +13,7 @@ class SignUp extends Component{
   }
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value.toLowerCase()
+      [e.target.id]: e.target.value
     })
   }
   handleSubmit = (e) => {

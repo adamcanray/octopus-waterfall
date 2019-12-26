@@ -13,17 +13,17 @@ class ProfilePhotoUpdate extends Component{
     errorSizeMsg: ''
   }
 
+  // errorNotChooseImg = () => {
+  //   const message = 'please choose an image.';
+  //   return message;
+  // }
   errorSizeMsg = (size) => {
     const message = 'your size is '+size+' (Max 200 KB)';
     return message;
   }
-  errorNotChooseImg = () => {
-    const message = 'please choose an image.';
-    return message;
-  }
   bytesToSize = (bytes) => {
     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    if (bytes == 0) return '0 Byte';
+    if (bytes === 0) return '0 Byte';
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
   }
@@ -42,9 +42,16 @@ class ProfilePhotoUpdate extends Component{
       this.setState(() => ({ image, errorSizeMsg: '' }));
     }
   };
-  // 
-  handlePreview = (e) => {
+  // UPLOAD IMAGE
+  handleUpload = (e) => {
     e.preventDefault();
+    // const { image } = this.state;
+    // if (image === null){
+    //   alert('kamu belum memilih gambar!');
+    //   return false;
+    // } else{
+    //   window.location.reload();
+    // }
     if (this.state.image === null){
       alert('kamu belum memilih gambar!');
       return false;
@@ -88,25 +95,14 @@ class ProfilePhotoUpdate extends Component{
           });
       }
     );
-  }
-  // UPLOAD IMAGE
-  handleUpload = (e) => {
-    e.preventDefault();
-    const { image } = this.state;
-    if (image === null){
-      alert('kamu belum memilih gambar!');
-      return false;
-    } else{
-      window.location.reload();
-    }
   };
 
   render(){
-    const buttonFormUpload = <button onClick={this.handleUpload} type="submit" className="btn btn-warning mr-2">Upload File</button>
+    const buttonFormUpload = this.state.progress === 100 ? <p className="text-success">Upload Success</p> : <button onClick={this.handleUpload} type="submit" className="btn btn-light mr-2">Upload File</button>
     const labelBeforeError = this.state.errorSizeMsg === '' ? <label htmlFor="file" className="mt-2">File (Max 200 KB)</label> : <label></label>
     return (
       <div>
-        <img src={this.state.photoURL || 'https://via.placeholder.com/150'} width="150" height="150" />
+        <img src={this.state.photoURL || 'https://via.placeholder.com/150'} width="150" height="150" alt="preview-img" />
         <form>
           <div className="form-group">
             {labelBeforeError}
@@ -117,7 +113,6 @@ class ProfilePhotoUpdate extends Component{
             <progress className="progress-bar w-100 h-100" value={this.state.progress} max="100" />
           </div>
           {buttonFormUpload}
-          <button onClick={this.handlePreview} type="submit" className="btn btn-light">Preview</button>
         </form>
       </div>
     )
