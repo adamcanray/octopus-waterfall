@@ -14,21 +14,25 @@ const ContentHeader = () => {
             <img src="/img/people-working-1.jpg" className="d-block w-100" alt="people-working" />
             <div className="carousel-caption d-none d-md-block">
               <h3>Octopus Waterfall</h3>
-              <p>Adalah situs dimana kita bisa menemukan Quote keren dari orang-orang keren.</p>
+              {/*<p>Adalah situs dimana kita bisa menemukan Quote keren dari orang-orang keren.</p>*/}
+              {/*<p>is a site where we can find inspiring quotes from great people.</p>*/}
+              <p>Is a site where we can find Inspiring Quotes.</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/img/people-working-2.jpg" className="d-block w-100" alt="people-working" />
             <div className="carousel-caption d-none d-md-block">
-              <h3>Ayo Daftar!</h3>
-              <p>Kamu bisa jadi salah satu dari orang-orang keren tersebut.</p>
+              <h3>Whooa!</h3>
+              {/*<p>Kamu bisa jadi salah satu dari orang-orang keren tersebut.</p>*/}
+              <p>You can also make your own Quotes.</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/img/people-working-3.jpg" className="d-block w-100" alt="people-working" />
             <div className="carousel-caption d-none d-md-block">
-              <h3>Whooa!</h3>
-              <p>Karena disini kamu bisa menulis Quote-mu sendiri.</p>
+              <h3>Come Join Us!</h3>
+              {/*<p>Karena disini kamu bisa menulis Quote-mu sendiri.</p>*/}
+              <p>You can find great people here.</p>
             </div>
           </div>
         </div>

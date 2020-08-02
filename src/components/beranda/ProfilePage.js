@@ -23,7 +23,9 @@ class ProfilePage extends Component {
   }
   deleteAcc = (e) => {
     e.preventDefault();
+    // get current user
     var user = firebase.auth().currentUser;
+    // get credential from input state, then set it.
     var credential = firebase.auth.EmailAuthProvider.credential(
       this.state.email,
       this.state.password

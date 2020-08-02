@@ -47,16 +47,34 @@ exports.userJoined = functions.auth.user().onCreate(user => {
   })
 })
 
-// track user on deleted the account
+// track user on deleted the account.
+// do delete on firestore database too.
+// but, how if we just save it as a backup data?why not.
 exports.userDelete = functions.auth.user().onDelete(user => {
+  // get current user with specifics uid from paramter
   return admin.firestore().collection('users').doc(user.uid).get().then(doc => {
-    const newUser = doc.data();
+    const currentUser = doc.data();
     const notification = {
       content: 'Deleted the account',
-      user: `${newUser.firstName} ${newUser.lastName}`,
+      user: `${currentUser.firstName} ${currentUser.lastName}`,
       time: admin.firestore.FieldValue.serverTimestamp()
     }
+    
 
-    return admin.firestore().collection('users').doc(user.uid).delete().then(() => {return createNotification(notification)});
+    /* 
+    * there is two options for different action.
+    */
+    
+    /* OPTION 1 */
+    // do delete user data from database firestore,
+    // return admin.firestore().collection('users').doc(user.uid).delete().then(() => {
+    //   // then create notification.
+    //   return createNotification(notification)
+    // });
+    
+    /* OPTION 2 */
+    // just delete user from Authenticated Account Firebase and create notification.
+    // we save data user in Firestore Database for backup.
+    return createNotification(notification)
   })
 })

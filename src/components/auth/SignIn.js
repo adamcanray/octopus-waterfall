@@ -67,7 +67,7 @@ const mapStateToProps = (state) => {
     authError: state.auth.authError
   }
 }
-
+// kirim data yang dimasukan user ke props 
 const mapDispatchToProps = (dispatch) => {
   return {
     signIn: (creds) => dispatch(signIn(creds))
