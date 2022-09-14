@@ -143,7 +143,7 @@ const BotFooter = () => {
   return (
     <div className="bot-footer text-center text-light">
       <small>&copy;2019 <span className="bot-footer-border-right pr-1">Octopus Waterfall</span>
-      <span className="pl-1">Built With &#10084; by: <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/adamcanray">Muhammad Adam Canrayneldy</a></span></small>
+      <span className="pl-1">Built With &#10084; by: <a target="_blank" rel="noopener noreferrer" href="https://github.com/adamcanray">Adam Canray</a></span></small>
     </div>
   )
 }
