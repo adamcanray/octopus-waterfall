@@ -12,8 +12,6 @@ import Footer from './components/content/ContentFooter';
 import QuotesDetail from './components/quotes/QuoteDetail';
 
 function App() {
-  console.log(process.env)
-  console.log(process.env.API_KEY)
   return (
     <BrowserRouter>
       <div className="App">
