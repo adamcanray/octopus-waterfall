@@ -3,26 +3,15 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 // Initialize Firebase
-// upload github
-// const firebaseConfig = {
-//   apiKey: myApiKeyOnFirebase,
-//   authDomain: myAuthDomainOnFirebase,
-//   databaseURL: myDatabaseURLOnFirebase,
-//   projectId: myProjectIdOnFirebase,
-//   storageBucket: myStorageBucketOnFirebase,
-//   messagingSenderId: myMessagingSenderIdOnFirebase,
-//   appId: myApiIdOnFirebase,
-//   measurementId: myMeasurementIdOnFirebase
-// };
 const firebaseConfig = {
-  apiKey: "AIzaSyABH5-GDDk5ZYCe-Lf1Tg71I0DLmON1yE0",
-  authDomain: "octopuswaterfall.firebaseapp.com",
-  databaseURL: "https://octopuswaterfall.firebaseio.com",
-  projectId: "octopuswaterfall",
-  storageBucket: "octopuswaterfall.appspot.com",
-  messagingSenderId: "591836866723",
-  appId: "1:591836866723:web:dd138f08ca3d7c00153716",
-  measurementId: "G-Q03838NTMJ"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID 
 };
 firebase.initializeApp(firebaseConfig)
 // initialize firestore
