@@ -13,9 +13,7 @@ const ContactPage = (props) => {
             <div className="card-body">
             <h3 className="font-italic font-weight-bolder title-desc">Contact Us on:</h3>
             <p className="desc">
-            Phone/Office: <b>0877-4441-6392</b> / <b>021-123-123</b><br/>
-            WhatsApp: <b>0877-4441-6392</b><br/>
-            Instagram: <a href="https://instagram.com/adamcanray/">Adamcanray</a> / <a href="https://instagram.com/adamcanray/">Octopuswaterfall</a><br/>
+            Phone/Office: <b>0878-7777-6767</b> / <b>021-123-123</b><br/>
             GitHub: <a href="https://github.com/adamcanray/">Adamcanray</a><br/>
             ...
             </p>
