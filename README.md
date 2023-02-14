@@ -24,4 +24,4 @@ Instalisasi:
 <br><br>
 
 All the best.<br>
-&copy;2019 Muhammad Adam Canrayneldy
+&copy;2019 Adam Canray
