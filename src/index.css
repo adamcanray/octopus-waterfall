@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.quote-list:hover{text-decoration: none;}
+.profile-picture-quote{display: inline-block;width:40px;height:40px;object-fit:cover;}
+.info-user-name{font-size: 1.2em;}
+.img-profile{display: inline-block;width:230px;height:230px;object-fit:cover;}
+.img-info-user{display: inline-block;width:150px;height:150px;object-fit:cover;}
+/* SLIDER */
+.carousel-caption h3{font-size:3em;}
+.carousel-caption p{font-size:1em;margin-bottom:140px;}
+.carousel-caption h3,.carousel-caption p{text-shadow:2px 2px 8px #000;}
+/* CONTENT */
+.content-blok-satu{color:#FF5959;font-size:40px;}
+.paragraf-font{font-size:20px;color:#707070;}
+/* FOOTER */
+.top-footer{background-color:#EEEEEE;padding:20px 0px;margin-top:100px;}
+.top-footer-icon{width:40px;}
+.mid-footer{background-color:#2a2a2a;padding:30px 0px;}
+.mid-footer ul{padding:0;list-style:none;}
+.mid-footer a{color:#98a1aa;}
+.mid-footer a:hover{color:#FF5959;text-decoration:none;}
+.mid-footer-logo{width:100%;}
+.mid-footer-header-desc{font-size:30px;color:#fff;}
+.mid-footer-contributor-img{width:30px;}
+.bot-footer{padding:22px 0px;background-color:#202020;}
+.bot-footer a{color:#FF5959;}
+.bot-footer-border-right{border-right:solid #fff 1px;}
+/* ABOUT */
+.title-desc{color:#FF5959;font-size:40px;}
+.desc{font-size:20px;}
+/* LOGIN */
+.mt-form{margin-top:7em;}
+.icon-form{top:-105px;}
+
+/* responsive */
+/* SLIDER */
+@media (min-width:576px){
+  .carousel-caption h3{font-size:2.4em;}
+  .carousel-caption p{font-size:1.3em;margin-bottom:20px;}
+}
+@media (min-width:768px){
+  .carousel-caption h3{font-size:3.2em;}
+  .carousel-caption p{font-size:1.7em;margin-bottom:30px;}
+}
+@media (min-width:992px){
+  .carousel-caption h3{font-size:4em;}
+  .carousel-caption p{font-size:2em;margin-bottom:60px;}
+}
+@media (min-width:1200px){
+  .carousel-caption h3{font-size:5em;}
+  .carousel-caption p{font-size:2.5em;}
+}
+/* CONTENT */
+@media only screen and (max-width:992px) {
+  /* .content-blok-satu{font-size:30px;}
+  .paragraf-font{font-size:15px;} */
+}
